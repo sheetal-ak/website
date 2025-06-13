@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+ Contact
+{% endblock title %}
+{% load static %}
+{% block body %}
+<div class="container-fluid my-2 px-0">
+    <img src="{% static 'img/contact.jpg' %}" class="d-block w-100 carousel-img" style="height: 380px; object-fit: cover;" >
+</div>
+<div class="container d-flex justify-content-center mb-20 py-1">
+  <form method="post" action="/contact" style="width: 500px; margin-top: 30px;">
+    {% csrf_token %}
+    <h2 class="text-center mb-4">Contact us</h2>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="name@example.com">
+    </div>
+
+    <div class="form-group">
+      <label for="contact">Contact</label>
+      <input type="text" class="form-control" id="contact" name="phone" placeholder="Enter your number">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Tell me what you want from our shop</label>
+      <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock body %}
